@@ -87,5 +87,23 @@ DNSrelay --&gt; Client  [reply]
   + query                                 [TODO]    
   DNSrelay --&gt; net.Foreign
   + reply (send directly)                 [DONE]
-  DNSrelay --&gt; net.Client      
+  DNSrelay --&gt; net.Client  
 
+#### Week3 - TaginDai
++ A class of Network parameter
++ UDP server [DNS server]
++ UDP foreign query [DNS server]
++ UDP client [DNS user]
+
+##### 1. A class of Network parameter
+  + Drop the last two issues in Week1 [TODO]
+  + parameter class netparam [TODO]  
+
+##### 2. UDP server [DNS server class]
+  + inherent just as the Time Server in python cookbook
+    - snedto() // recvfrom()
+    - inherent threadUDPserver
+##### 3. New multi-thread Client and Server
+  + Refer to [this URL](https://gist.github.com/micktwomey/606178).
+  + Added settimeout in Client
+  + TODO: find how to cancel the binding of socket and addr@port
