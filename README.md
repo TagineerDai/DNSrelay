@@ -32,7 +32,7 @@ There are three possible query answers:
   + Search/get/Set
     - Use The BTrees.OOBTree  
       [pip install btrees]
-    - The added rec should be reg vaild   [TODO]
+    - The added rec should be reg vaild   [TODO] [DONE]
 
 ###### 2. Option defination
 + Server                                  [DONE]    
@@ -44,7 +44,7 @@ Filename of the DomainName-IP list.
 The longest dwelling time of one recored in cache.  
 (Default: 600second)
   * -c &lt;size(int)&gt;
-Cache size.  
+Cache size.
 (Default: 200 records)
   * -b &lt;size(int)&gt;  
 Buffer size;  
@@ -54,7 +54,7 @@ Buffer size;
 Connected with IP::Port
   * -q &lt;No option&gt;  
 Quit   
-+ In Client                               [TODO]  
++ In Client                               [TODO]
   * -p &lt;c(cache)|f(file)&gt;  
 Print all the record in cache/file.  
   * -g &lt;Domain Name&gt;  
@@ -86,6 +86,7 @@ DNSrelay --&gt; Client  [reply]
 * building the dgram                      
   + query                                 [TODO]    
   DNSrelay --&gt; net.Foreign
+
   + reply (send directly)                 [DONE]
   DNSrelay --&gt; net.Client  
 
@@ -107,3 +108,14 @@ DNSrelay --&gt; Client  [reply]
   + Refer to [this URL](https://gist.github.com/micktwomey/606178).
   + Added settimeout in Client
   + TODO: find how to cancel the binding of socket and addr@port
+
+
+### ZhangXiaoyu
++ Use the Message in dnspython, add option SHOW_CACHE and SHOW_FILE corresponding to
+  the requirment of our assignment.
++ Add the process function of Client and DNSRelay.
++ Resolve some [TODO] before.
+TODO: 完善 Message 中与新option相关的parse函数，及make_requry_response， 对 debug 模式的处理。
+说明： 如果自己写Parse的话，基本相当于把那个重抄一遍了，所以我就直接用他的message了，新加了两个option，就够我们的所有操作了。
+具体是，在DNSRelayHandler中的handle process的时候，如果在本地找到了，就make_response返回，否则，换个qname转发出去就可以了。
+以及感觉老师的意思应该是用一个main，Server可能需要改改？
